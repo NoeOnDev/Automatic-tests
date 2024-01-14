@@ -9,18 +9,14 @@ describe('getUniqueValues()', () => {
       expect(uniqueArray).toEqual([1, 2, 3])    
     });
   
-  });
+});
   
+describe('filterByLength()', () => {
   
-  describe('filterByLength()', () => {
-  
-    const cities = ['Lima', 'Quito', 'Caracas'];
-  
+    const cities = ['Lima', 'Quito', 'Caracas', 'Yo', 'Tu'];
     it('debería filtrar correctamente por longitud', () => {
-      
         const filtered = filterByLength(cities, 3); 
-
         expect(filtered).toEqual(['Lima', 'Quito', 'Caracas'])
     });  
   
-  });
+});
