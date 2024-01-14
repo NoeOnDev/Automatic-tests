@@ -1,4 +1,4 @@
-// Esta finción recibe dos números y devuelve la suma de los mismos
+// Esta función recibe dos números y devuelve la suma de los mismos
 function sumar(a, b) {
     return a + b; 
 }
