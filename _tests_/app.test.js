@@ -2,7 +2,7 @@ import request from "supertest";
 import app from "../app.js";
 
 // Realizo una pruba para el endpoint ('/'), que debe responder con un status 200
-describe("Prueba del endpoint /", () => {
+describe("Prueba del endpoint ('/')", () => {
 
   let server;
   // Antes de cada prueba, levanto el servidor
@@ -14,7 +14,7 @@ describe("Prueba del endpoint /", () => {
      server.close();
   })
   // Realizo la prueba
-  it("debe responder en /", async () => {
+  it("debe responder con un status 200 en la ruta ('/')", async () => {
     const res = await request(app).get("/");
     // Espero que el status de la respuesta sea 200
     expect(res.statusCode).toEqual(200);
