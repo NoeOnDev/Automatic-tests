@@ -3,5 +3,9 @@
 function saludar(usuario) {
     console.log("Hola usuario");
 }
+// Correcto
+function saludar(usuario) {
+    console.log("Hola " + usuario);
+}
 
 saludar("Juan");
