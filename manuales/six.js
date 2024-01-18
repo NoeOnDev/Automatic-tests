@@ -24,6 +24,18 @@ app.post('/books', async (req, res) => {
     }
 });
 
+app.get('/books', async (req, res) => {
+    try {
+        // Obtengo todos los libros de la base de datos
+        const books = await Book.findAll();
+        // Respondo con los libros
+        res.json(books);
+    } catch (error) {
+        // Si hay un error, lo muestro en la respuesta
+        res.status(400).json({ error: error.message });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
@@ -38,7 +50,7 @@ sequelize.authenticate()
     .then(() => console.log('Database connected'))
     .catch(err => console.log('Error: ' + err));
 
-sequelize.sync({});
+sequelize.sync({ force: true });
 
 class Book extends Model {}
 
