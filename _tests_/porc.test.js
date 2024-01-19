@@ -1,5 +1,8 @@
 // Esta función recibe dos números y devuelve el porcentaje del primero respecto al segundo
 function porcentaje(a, b) {
+    if (b === 0) {
+        throw new Error("No se puede calcular el porcentaje respecto a cero");
+    }
     return (a / b) * 100; 
 }
 
