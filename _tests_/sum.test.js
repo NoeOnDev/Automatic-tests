@@ -15,3 +15,8 @@ function sumar(a, b) {
   test('Suma de positivo y negativo', () => {
     expect(sumar(-10, 5)).toBe(-5);
   });
+
+  // En esta prueba esperamos que la suma de "2" y "3" lance un error
+test('Suma con valores no numéricos', () => {
+  expect(() => sumar("2", "3")).toThrow();
+});
