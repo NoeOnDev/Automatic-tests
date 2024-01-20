@@ -1,6 +1,9 @@
 // Esta función recibe dos números y devuelve la suma de los mismos
 function sumar(a, b) {
-    return a + b; 
+  if (typeof a !== 'number' || typeof b !== 'number') {
+      throw new Error("Los argumentos deben ser números");
+  }
+  return a + b; 
 }
  
   // En esta prueba esperamos que la suma de 2 + 3 sea igual a 5
@@ -17,6 +20,6 @@ function sumar(a, b) {
   });
 
   // En esta prueba esperamos que la suma de "2" y "3" lance un error
-test('Suma con valores no numéricos', () => {
-  expect(() => sumar("2", "3")).toThrow();
-});
+  test('Suma con valores no numéricos', () => {
+    expect(() => sumar("2", "3")).toThrow();
+  });
