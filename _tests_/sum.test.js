@@ -23,3 +23,13 @@ function sumar(a, b) {
   test('Suma con valores no numéricos', () => {
     expect(() => sumar("2", "3")).toThrow();
   });
+
+  // En esta prueba esperamos que la suma de null y 3 lance un error
+  test('Suma con valor null', () => {
+    expect(() => sumar(null, 3)).toThrow();
+  });
+
+  // En esta prueba esperamos que la suma de undefined y 3 lance un error
+  test('Suma con valor undefined', () => {
+    expect(() => sumar(undefined, 3)).toThrow();
+  });
