@@ -25,3 +25,8 @@ test('Porcentaje de un número respecto a sí mismo', () => {
 test('Porcentaje respecto a cero', () => {
     expect(() => porcentaje(10, 0)).toThrow();
 });
+
+// En esta prueba esperamos que el porcentaje de "10" respecto a "2" lance un error
+test('Porcentaje con valores no numéricos', () => {
+    expect(() => porcentaje("10", "2")).toThrow();
+});
