@@ -9,29 +9,23 @@ const app = express();
 
 app.use(express.json());
 
-// Endpoint para crear libros y guardarlos en la base de datos
 app.post('/books', async (req, res) => {
     try {
-        // Obtengo los datos del body
         const { title, autor, editorial } = req.body;
-        // Creo un libro en la base de datos
         const book = await Book.create({ title, autor, editorial });
         // Respondo con el libro creado
         res.status(201).json(book);
     } catch (error) {
-        // Si hay un error, lo muestro en la respuesta
         res.status(400).json({ error: error.message });
     }
 });
 
 app.get('/books', async (req, res) => {
     try {
-        // Obtengo todos los libros de la base de datos
         const books = await Book.findAll();
         // Respondo con los libros
         res.json(books);
     } catch (error) {
-        // Si hay un error, lo muestro en la respuesta
         res.status(400).json({ error: error.message });
     }
 });
