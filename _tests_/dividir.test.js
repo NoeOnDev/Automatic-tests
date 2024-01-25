@@ -1,4 +1,7 @@
 function dividir(a, b) {
+    if (typeof b !== 'number') {
+        throw new Error("El divisor debe ser un número");
+    }
     if (b === 0) {
         throw new Error("No se puede dividir por cero");
     }
