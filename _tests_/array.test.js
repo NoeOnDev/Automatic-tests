@@ -1,5 +1,12 @@
 function maximo(array) {
-    return Math.max(...array);
+    if (array.some(isNaN)) {
+        throw new Error("El array contiene NaN");
+    }
+    if (array.some(x => typeof x === 'string')) {
+        throw new Error("El array contiene una cadena de texto");
+    }
+    const filteredArray = array.filter(x => typeof x === 'number');
+    return Math.max(...filteredArray);
 }
 
 test('Valor máximo de un array', () => {
