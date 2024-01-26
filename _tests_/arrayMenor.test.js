@@ -1,5 +1,12 @@
 function minimo(array) {
-    return Math.min(...array);
+    if (array.some(isNaN)) {
+        throw new Error("El array contiene NaN");
+    }
+    if (array.some(x => typeof x === 'string')) {
+        throw new Error("El array contiene una cadena de texto");
+    }
+    const filteredArray = array.filter(x => typeof x === 'number' && x !== null);
+    return Math.min(...filteredArray);
 }
 
 test('Valor mínimo de un array', () => {
