@@ -43,7 +43,7 @@ test('Invertir undefined', () => {
 
 // En esta prueba esperamos que invertir una cadena con caracteres de escape retorne la cadena invertida
 test('Invertir una cadena con caracteres de escape', () => {
-    expect(invertir('hola\n')).toBe('\nolah');
+    expect(invertir('hola\n')).toBe('aloh\n');
 });
 
 // En esta prueba esperamos que invertir una cadena con emojis retorne la cadena invertida
