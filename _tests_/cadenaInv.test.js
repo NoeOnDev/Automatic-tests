@@ -1,5 +1,12 @@
+import punycode from 'punycode';
+
 function invertir(cadena) {
-    return cadena.split('').reverse().join('');
+    if (typeof cadena !== 'string') {
+        throw new Error('El argumento debe ser una cadena');
+    }
+    const array = punycode.ucs2.decode(cadena);
+    const reversedArray = array.reverse();
+    return punycode.ucs2.encode(reversedArray);
 }
 
 test('Invertir una cadena', () => {
