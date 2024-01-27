@@ -33,3 +33,28 @@ test('Invertir null', () => {
 test('Invertir undefined', () => {
     expect(() => invertir(undefined)).toThrow();
 });
+
+// En esta prueba esperamos que invertir una cadena con caracteres de escape retorne la cadena invertida
+test('Invertir una cadena con caracteres de escape', () => {
+    expect(invertir('hola\n')).toBe('\nolah');
+});
+
+// En esta prueba esperamos que invertir una cadena con emojis retorne la cadena invertida
+test('Invertir una cadena con emojis', () => {
+    expect(invertir('hola 😃')).toBe('😃 aloh');
+});
+
+// En esta prueba esperamos que invertir un número lance un error
+test('Invertir un número', () => {
+    expect(() => invertir(12345)).toThrow();
+});
+
+// En esta prueba esperamos que invertir un objeto lance un error
+test('Invertir un objeto', () => {
+    expect(() => invertir({ hola: 'mundo' })).toThrow();
+});
+
+// En esta prueba esperamos que invertir un booleano lance un error
+test('Invertir un booleano', () => {
+    expect(() => invertir(true)).toThrow();
+});
