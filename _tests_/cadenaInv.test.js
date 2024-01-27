@@ -1,12 +1,12 @@
-import punycode from 'punycode';
+import _ from 'lodash';
 
 function invertir(cadena) {
     if (typeof cadena !== 'string') {
         throw new Error('El argumento debe ser una cadena');
     }
-    const array = punycode.ucs2.decode(cadena);
-    const reversedArray = array.reverse();
-    return punycode.ucs2.encode(reversedArray);
+    const array = Array.from(cadena);
+    const reversedArray = _.reverse(array);
+    return reversedArray.join('');
 }
 
 test('Invertir una cadena', () => {
