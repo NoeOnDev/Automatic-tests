@@ -52,3 +52,23 @@ function sumar(a, b) {
   test('Suma de un número y un booleano', () => {
     expect(() => sumar(5, true)).toThrow();
   });
+
+  // En esta prueba esperamos que sumar un número y Infinity retorne Infinity
+  test('Suma de un número y Infinity', () => {
+    expect(sumar(5, Infinity)).toBe(Infinity);
+  });
+
+  // En esta prueba esperamos que sumar un número y -Infinity retorne -Infinity
+  test('Suma de un número y -Infinity', () => {
+    expect(sumar(5, -Infinity)).toBe(-Infinity);
+  });
+
+  // En esta prueba esperamos que sumar Infinity y Infinity retorne Infinity
+  test('Suma de Infinity y Infinity', () => {
+    expect(sumar(Infinity, Infinity)).toBe(Infinity);
+  });
+
+  // En esta prueba esperamos que sumar -Infinity e Infinity retorne NaN
+  test('Suma de -Infinity e Infinity', () => {
+    expect(sumar(-Infinity, Infinity)).toBeNaN();
+  });
