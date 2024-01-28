@@ -1,8 +1,8 @@
 function sumar(a, b) {
-  if (typeof a !== 'number' || typeof b !== 'number') {
-      throw new Error("Los argumentos deben ser números");
+  if (typeof a !== 'number' || typeof b !== 'number' || isNaN(a) || isNaN(b)) {
+      throw new Error('Ambos argumentos deben ser números y no pueden ser NaN');
   }
-  return a + b; 
+  return a + b;
 }
  
   test('Suma de dos números positivos', () => {
@@ -28,7 +28,7 @@ function sumar(a, b) {
   test('Suma con valor undefined', () => {
     expect(() => sumar(undefined, 3)).toThrow();
   });
-  
+
   // En esta prueba esperamos que sumar dos números decimales retorne la suma correcta
 test('Suma de dos números decimales', () => {
   expect(sumar(0.1, 0.2)).toBeCloseTo(0.3);
