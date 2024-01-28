@@ -29,32 +29,26 @@ function sumar(a, b) {
     expect(() => sumar(undefined, 3)).toThrow();
   });
 
-  // En esta prueba esperamos que sumar dos números decimales retorne la suma correcta
-test('Suma de dos números decimales', () => {
-  expect(sumar(0.1, 0.2)).toBeCloseTo(0.3);
-});
+  test('Suma de dos números decimales', () => {
+    expect(sumar(0.1, 0.2)).toBeCloseTo(0.3);
+  });
 
-// En esta prueba esperamos que sumar un número y cero retorne el mismo número
-test('Suma de un número y cero', () => {
-  expect(sumar(5, 0)).toBe(5);
-});
+  test('Suma de un número y cero', () => {
+    expect(sumar(5, 0)).toBe(5);
+  });
 
-// En esta prueba esperamos que sumar un número y NaN lance un error
-test('Suma de un número y NaN', () => {
-  expect(() => sumar(5, NaN)).toThrow();
-});
+  test('Suma de un número y NaN', () => {
+    expect(() => sumar(5, NaN)).toThrow();
+  });
 
-// En esta prueba esperamos que sumar un número y un string numérico lance un error
-test('Suma de un número y un string numérico', () => {
-  expect(() => sumar(5, '5')).toThrow();
-});
+  test('Suma de un número y un string numérico', () => {
+    expect(() => sumar(5, '5')).toThrow();
+  });
 
-// En esta prueba esperamos que sumar un número y un objeto lance un error
-test('Suma de un número y un objeto', () => {
-  expect(() => sumar(5, {})).toThrow();
-});
+  test('Suma de un número y un objeto', () => {
+    expect(() => sumar(5, {})).toThrow();
+  });
 
-// En esta prueba esperamos que sumar un número y un booleano lance un error
-test('Suma de un número y un booleano', () => {
-  expect(() => sumar(5, true)).toThrow();
-});
+  test('Suma de un número y un booleano', () => {
+    expect(() => sumar(5, true)).toThrow();
+  });
