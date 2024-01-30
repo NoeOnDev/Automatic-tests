@@ -45,37 +45,30 @@ test('Resta de un número y NaN', () => {
     expect(() => restar(5, NaN)).toThrow();
 });
 
-// En esta prueba esperamos que restar un número y un string numérico lance un error
 test('Resta de un número y un string numérico', () => {
     expect(() => restar(5, '5')).toThrow();
 });
 
-// En esta prueba esperamos que restar un número y un objeto lance un error
 test('Resta de un número y un objeto', () => {
     expect(() => restar(5, {})).toThrow();
 });
 
-// En esta prueba esperamos que restar un número y un booleano lance un error
 test('Resta de un número y un booleano', () => {
     expect(() => restar(5, true)).toThrow();
 });
 
-// En esta prueba esperamos que restar un número y Infinity retorne -Infinity
 test('Resta de un número y Infinity', () => {
     expect(restar(5, Infinity)).toBe(-Infinity);
 });
 
-// En esta prueba esperamos que restar un número y -Infinity retorne Infinity
 test('Resta de un número y -Infinity', () => {
     expect(restar(5, -Infinity)).toBe(Infinity);
 });
 
-// En esta prueba esperamos que restar Infinity e Infinity retorne NaN
 test('Resta de Infinity e Infinity', () => {
     expect(restar(Infinity, Infinity)).toBeNaN();
 });
 
-// En esta prueba esperamos que restar -Infinity y -Infinity retorne NaN
 test('Resta de -Infinity y -Infinity', () => {
     expect(restar(-Infinity, -Infinity)).toBeNaN();
 });
