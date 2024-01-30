@@ -1,8 +1,8 @@
 function restar(a, b) {
-    if (typeof a !== 'number' || typeof b !== 'number') {
-        throw new Error("Ambos argumentos deben ser números");
+    if (typeof a !== 'number' || typeof b !== 'number' || isNaN(a) || isNaN(b)) {
+        throw new Error('Ambos argumentos deben ser números y no pueden ser NaN');
     }
-    return a - b; 
+    return a - b;
 }
 
 test('Resta de dos números positivos', () => {
