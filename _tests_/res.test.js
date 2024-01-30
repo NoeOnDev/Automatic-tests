@@ -37,12 +37,10 @@ test('Resta de un número y undefined', () => {
     expect(() => restar(5, undefined)).toThrow();
 });
 
-// En esta prueba esperamos que restar dos números decimales retorne la resta correcta
 test('Resta de dos números decimales', () => {
     expect(restar(0.3, 0.1)).toBeCloseTo(0.2);
 });
 
-// En esta prueba esperamos que restar un número y NaN lance un error
 test('Resta de un número y NaN', () => {
     expect(() => restar(5, NaN)).toThrow();
 });
