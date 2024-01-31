@@ -39,28 +39,22 @@ test('Porcentaje de un número respecto a NaN', () => {
 test('Porcentaje de un número respecto a un string numérico', () => {
     expect(() => porcentaje(5, '5')).toThrow();
 });
-
-// En esta prueba esperamos que calcular el porcentaje de un número respecto a un objeto lance un error
 test('Porcentaje de un número respecto a un objeto', () => {
     expect(() => porcentaje(5, {})).toThrow();
 });
 
-// En esta prueba esperamos que calcular el porcentaje de un número respecto a un booleano lance un error
 test('Porcentaje de un número respecto a un booleano', () => {
     expect(() => porcentaje(5, true)).toThrow();
 });
 
-// En esta prueba esperamos que calcular el porcentaje de un número respecto a Infinity retorne 0
 test('Porcentaje de un número respecto a Infinity', () => {
     expect(porcentaje(5, Infinity)).toBe(0);
 });
 
-// En esta prueba esperamos que calcular el porcentaje de Infinity respecto a un número retorne Infinity
 test('Porcentaje de Infinity respecto a un número', () => {
     expect(porcentaje(Infinity, 5)).toBe(Infinity);
 });
 
-// En esta prueba esperamos que calcular el porcentaje de Infinity respecto a Infinity retorne NaN
 test('Porcentaje de Infinity respecto a Infinity', () => {
     expect(porcentaje(Infinity, Infinity)).toBeNaN();
 });
