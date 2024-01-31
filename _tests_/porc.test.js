@@ -1,6 +1,6 @@
 function porcentaje(a, b) {
-    if (typeof a !== 'number' || typeof b !== 'number') {
-        throw new Error("Los argumentos deben ser números");
+    if (typeof a !== 'number' || typeof b !== 'number' || isNaN(a) || isNaN(b)) {
+        throw new Error("Los argumentos deben ser números y no pueden ser NaN");
     }
     if (b === 0) {
         throw new Error("No se puede calcular el porcentaje respecto a cero");
