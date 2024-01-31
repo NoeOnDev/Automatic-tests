@@ -28,17 +28,14 @@ test('Porcentaje con valores no numéricos', () => {
     expect(() => porcentaje("10", "2")).toThrow();
 });
 
-// En esta prueba esperamos que calcular el porcentaje de un número decimal respecto a otro retorne el porcentaje correcto
 test('Porcentaje de un número decimal respecto a otro', () => {
     expect(porcentaje(0.5, 2)).toBeCloseTo(25);
 });
 
-// En esta prueba esperamos que calcular el porcentaje de un número respecto a NaN lance un error
 test('Porcentaje de un número respecto a NaN', () => {
     expect(() => porcentaje(5, NaN)).toThrow();
 });
 
-// En esta prueba esperamos que calcular el porcentaje de un número respecto a un string numérico lance un error
 test('Porcentaje de un número respecto a un string numérico', () => {
     expect(() => porcentaje(5, '5')).toThrow();
 });
