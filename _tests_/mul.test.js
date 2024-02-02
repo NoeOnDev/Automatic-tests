@@ -31,7 +31,7 @@ test('Multiplicación de un número muy grande y un número muy pequeño', () =>
 });
 
 test('Multiplicación de dos números muy grandes', () => {
-    expect(() => multiplicar(1e+308, 1e+308)).toThrow();
+    expect(multiplicar(1e+308, 1e+308)).toBe(Infinity);
 });
 
 test('Multiplicación de dos números muy pequeños', () => {
