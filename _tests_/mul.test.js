@@ -17,3 +17,11 @@ test('Multiplicación de un número negativo y un número positivo', () => {
 test('Multiplicación por cero', () => {
     expect(multiplicar(10, 0)).toBe(0);
 });
+
+test('Multiplicación de dos números decimales', () => {
+    expect(multiplicar(0.5, 0.2)).toBeCloseTo(0.1);
+});
+
+test('Multiplicación de un número decimal y un número entero', () => {
+    expect(multiplicar(0.5, 2)).toBe(1);
+});
