@@ -41,3 +41,12 @@ test('Multiplicación de dos números muy pequeños', () => {
 test('Multiplicación de un número y NaN', () => {
     expect(multiplicar(10, NaN)).toBeNaN();
 });
+
+test('Multiplicación de un número y undefined', () => {
+    expect(multiplicar(10, undefined)).toBeNaN();
+});
+
+test('Multiplicación de un número y un string', () => {
+    expect(multiplicar(10, '5')).toBe(50);
+    expect(multiplicar(10, 'hola')).toBeNaN();
+});
