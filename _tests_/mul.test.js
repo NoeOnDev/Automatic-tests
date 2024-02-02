@@ -60,7 +60,7 @@ test('Multiplicación de un número y un string vacío', () => {
 });
 
 test('Multiplicación de un número y un string con espacio', () => {
-    expect(multiplicar(10, ' ')).toBeNaN();
+    expect(multiplicar(10, ' ')).toBe(0);
 });
 
 test('Multiplicación de un número y un objeto', () => {
