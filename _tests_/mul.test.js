@@ -50,3 +50,19 @@ test('Multiplicación de un número y un string', () => {
     expect(multiplicar(10, '5')).toBe(50);
     expect(multiplicar(10, 'hola')).toBeNaN();
 });
+
+test('Multiplicación de un número y null', () => {
+    expect(multiplicar(10, null)).toBe(0);
+});
+
+test('Multiplicación de un número y un string vacío', () => {
+    expect(multiplicar(10, '')).toBe(0);
+});
+
+test('Multiplicación de un número y un string con espacio', () => {
+    expect(multiplicar(10, ' ')).toBeNaN();
+});
+
+test('Multiplicación de un número y un objeto', () => {
+    expect(multiplicar(10, {})).toBeNaN();
+});
