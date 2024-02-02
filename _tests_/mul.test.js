@@ -25,3 +25,11 @@ test('Multiplicación de dos números decimales', () => {
 test('Multiplicación de un número decimal y un número entero', () => {
     expect(multiplicar(0.5, 2)).toBe(1);
 });
+
+test('Multiplicación de un número muy grande y un número muy pequeño', () => {
+    expect(multiplicar(1e+307, 1e-307)).toBeCloseTo(1);
+});
+
+test('Multiplicación de dos números muy grandes', () => {
+    expect(() => multiplicar(1e+308, 1e+308)).toThrow();
+});
