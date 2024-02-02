@@ -33,3 +33,11 @@ test('Multiplicación de un número muy grande y un número muy pequeño', () =>
 test('Multiplicación de dos números muy grandes', () => {
     expect(() => multiplicar(1e+308, 1e+308)).toThrow();
 });
+
+test('Multiplicación de dos números muy pequeños', () => {
+    expect(multiplicar(1e-308, 1e-308)).toBeCloseTo(0);
+});
+
+test('Multiplicación de un número y NaN', () => {
+    expect(multiplicar(10, NaN)).toBeNaN();
+});
