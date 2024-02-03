@@ -13,3 +13,7 @@ test('Ordenar un array de números con números negativos', () => {
 test('Ordenar un array de números con números decimales', () => {
     expect(ordenarArray([5.5, 2.2, 1.1, 3.3, 4.4])).toEqual([1.1, 2.2, 3.3, 4.4, 5.5]);
 });
+
+test('Ordenar un array vacío', () => {
+    expect(ordenarArray([])).toEqual([]);
+});
