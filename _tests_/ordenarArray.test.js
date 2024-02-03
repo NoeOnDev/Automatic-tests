@@ -17,3 +17,7 @@ test('Ordenar un array de números con números decimales', () => {
 test('Ordenar un array vacío', () => {
     expect(ordenarArray([])).toEqual([]);
 });
+
+test('Ordenar un array con un solo elemento', () => {
+    expect(ordenarArray([5])).toEqual([5]);
+});
