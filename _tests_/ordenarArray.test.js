@@ -1,5 +1,13 @@
 function ordenarArray(array) {
-    return array.sort((a, b) => a - b);
+    return array.sort((a, b) => {
+        if (isNaN(a) && isNaN(b)) return 0;
+        if (isNaN(a)) return -1;
+        if (isNaN(b)) return 1;
+        if (a === undefined && b === undefined) return 0;
+        if (a === undefined) return -1;
+        if (b === undefined) return 1;
+        return a - b;
+    });
 }
 
 test('Ordenar un array de números', () => {
