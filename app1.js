@@ -30,10 +30,6 @@ app.get('/books', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
-
 export default app;
 
 const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
