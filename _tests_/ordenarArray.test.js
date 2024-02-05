@@ -29,3 +29,7 @@ test('Ordenar un array de números con ceros', () => {
 test('Ordenar un array de números con números repetidos', () => {
     expect(ordenarArray([5, 2, 2, 3, 4, 4])).toEqual([2, 2, 3, 4, 4, 5]);
 });
+
+test('Ordenar un array de números con números muy grandes', () => {
+    expect(ordenarArray([1e+308, 5, 2, 1, 3, 4])).toEqual([1, 2, 3, 4, 5, 1e+308]);
+});
