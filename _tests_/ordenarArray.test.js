@@ -33,3 +33,7 @@ test('Ordenar un array de números con números repetidos', () => {
 test('Ordenar un array de números con números muy grandes', () => {
     expect(ordenarArray([1e+308, 5, 2, 1, 3, 4])).toEqual([1, 2, 3, 4, 5, 1e+308]);
 });
+
+test('Ordenar un array de números con números muy pequeños', () => {
+    expect(ordenarArray([1e-308, 5, 2, 1, 3, 4])).toEqual([1e-308, 1, 2, 3, 4, 5]);
+});
