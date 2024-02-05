@@ -13,6 +13,7 @@ app.post('/books', async (req, res) => {
     try {
         const { title, autor, editorial } = req.body;
         const book = await Book.create({ title, autor, editorial });
+        // Respondo con el libro creado
         res.status(201).json(book);
     } catch (error) {
         res.status(400).json({ error: error.message });
@@ -22,13 +23,16 @@ app.post('/books', async (req, res) => {
 app.get('/books', async (req, res) => {
     try {
         const books = await Book.findAll();
+        // Respondo con los libros
         res.json(books);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
 });
 
-export default app;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
 
 const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
     host: DB_HOST,
