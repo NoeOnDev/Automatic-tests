@@ -1,11 +1,10 @@
 function ordenarArray(array) {
     return array.sort((a, b) => {
+        if (a === undefined) return -1;
+        if (b === undefined) return 1;
         if (isNaN(a) && isNaN(b)) return 0;
         if (isNaN(a)) return -1;
         if (isNaN(b)) return 1;
-        if (a === undefined && b === undefined) return 0;
-        if (a === undefined) return -1;
-        if (b === undefined) return 1;
         return a - b;
     });
 }
