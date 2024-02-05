@@ -41,3 +41,7 @@ test('Ordenar un array de números con números muy pequeños', () => {
 test('Ordenar un array de números con números mixtos', () => {
     expect(ordenarArray([5, -2, 1, -3, 4, 0, 2.2, -1.1, 0, 3.3, -4.4])).toEqual([-4.4, -3, -2, -1.1, 0, 0, 1, 2.2, 3.3, 4, 5]);
 });
+
+test('Ordenar un array de números con NaN', () => {
+    expect(ordenarArray([5, NaN, 2, 1, 3, 4])).toEqual([NaN, 1, 2, 3, 4, 5]);
+});
