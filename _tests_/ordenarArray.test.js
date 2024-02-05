@@ -1,12 +1,15 @@
 function ordenarArray(array) {
-    return array.sort((a, b) => {
-        if (a === undefined) return -1;
-        if (b === undefined) return 1;
+    const undefinedValues = array.filter(value => value === undefined);
+    const otherValues = array.filter(value => value !== undefined);
+
+    otherValues.sort((a, b) => {
         if (isNaN(a) && isNaN(b)) return 0;
         if (isNaN(a)) return -1;
         if (isNaN(b)) return 1;
         return a - b;
     });
+
+    return [...otherValues, ...undefinedValues];
 }
 
 test('Ordenar un array de números', () => {
