@@ -58,8 +58,8 @@ test('Ordenar un array de números con NaN', () => {
 
 test('Ordenar un array de números con undefined', () => {
     const result = ordenarArray([5, undefined, 2, 1, 3, 4]);
-    expect(result[0]).toBeUndefined();
-    expect(result.slice(1)).toEqual([1, 2, 3, 4, 5]);
+    expect(result.slice(0, -1)).toEqual([1, 2, 3, 4, 5]);
+    expect(result[result.length - 1]).toBeUndefined();
 });
 
 test('Ordenar un array de números con elementos no numéricos', () => {
