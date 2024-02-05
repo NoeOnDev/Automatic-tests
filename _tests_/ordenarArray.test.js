@@ -21,3 +21,7 @@ test('Ordenar un array vacío', () => {
 test('Ordenar un array con un solo elemento', () => {
     expect(ordenarArray([5])).toEqual([5]);
 });
+
+test('Ordenar un array de números con ceros', () => {
+    expect(ordenarArray([0, 5, 2, 1, 3, 4])).toEqual([0, 1, 2, 3, 4, 5]);
+});
