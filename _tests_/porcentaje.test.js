@@ -1,6 +1,10 @@
 function calcularPorcentaje(total, cantidad) {
+    if (total === 0) {
+        return NaN;
+    }
     return (cantidad / total) * 100;
 }
+
 describe('calcularPorcentaje', () => {
     test('debería calcular el porcentaje correcto', () => {
         expect(calcularPorcentaje(200, 50)).toBe(25);
