@@ -6,5 +6,6 @@ describe('calcularPorcentaje', () => {
         expect(calcularPorcentaje(200, 50)).toBe(25);
         expect(calcularPorcentaje(500, 125)).toBe(25);
         expect(calcularPorcentaje(100, 100)).toBe(100);
+        expect(calcularPorcentaje(100, 0)).toBe(0);
     });
 });
