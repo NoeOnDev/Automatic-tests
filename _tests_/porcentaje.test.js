@@ -8,4 +8,8 @@ describe('calcularPorcentaje', () => {
         expect(calcularPorcentaje(100, 100)).toBe(100);
         expect(calcularPorcentaje(100, 0)).toBe(0);
     });
+
+    test('debería devolver NaN cuando el total es 0', () => {
+        expect(calcularPorcentaje(0, 50)).toBeNaN();
+    });
 });
