@@ -42,6 +42,24 @@ app.post('/login', async (req, res) => {
     }
 });
 
+app.get('/users', verifyToken, async (req, res) => {
+    try {
+        const users = await User.findAll();
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
+app.get('/user', verifyToken, async (req, res) => {
+    try {
+        const user = await User.findByPk(req.user.userId);
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
@@ -99,3 +117,18 @@ User.init({
         }
     }
 });
+
+function verifyToken(req, res, next) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    if (!token) {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
+    jwt.verify(token, JWT_SECRET, (err, user) => {
+        if (err) {
+            return res.status(403).json({ message: 'Forbidden' });
+        }
+        req.user = user;
+        next();
+    });
+}
