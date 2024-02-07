@@ -2,7 +2,7 @@
   "name": "my-app",
   "type": "module",
   "scripts": {
-    "dev": "node --watch manuales/six.js",
+    "dev": "node --watch index.js",
     "test": "jest"
   },
   "devDependencies": {
