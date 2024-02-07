@@ -19,7 +19,11 @@ app.listen(PORT, () => {
 
 const sequelize = new Sequelize(BD_NAME, DB_USER, DB_PASS, {
     host: DB_HOST,
-    dialect: 'postgres',
     port: DB_PORT,
+    dialect: 'postgres',
     logging: false
 });
+
+sequelize.authenticate().then(() => { console.log('Authentication sussesful') })
+ .catch(err => { console.log('Error: ', err) });
+
