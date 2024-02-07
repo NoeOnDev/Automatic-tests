@@ -1,17 +1,45 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import { config } from 'dotenv';
 import { Sequelize, Model, DataTypes } from 'sequelize';
 
 config();
 
-const { PORT, DB_NAME, DB_USER, DB_PASS, DB_PORT, DB_HOST } = process.env;
+const { PORT, JWT_SECRET, DB_NAME, DB_USER, DB_PASS, DB_PORT, DB_HOST } = process.env;
 const app = express();
 
 app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send('Hola mundo');
+});
+
+app.post('/register', async (req, res) => {
+    try {
+        const user = await User.create(req.body);
+        res.status(201).json(user);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
+app.post('/login', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ where: { email } });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        const validPassword = await bcrypt.compare(password, user.password);
+        if (!validPassword) {
+            return res.status(401).json({ message: 'Invalid password' });
+        }
+        const token = jwt.sign( { userId: user.id }, JWT_SECRET, { expiresIn: '1h' });
+        res.status(200).json({ message: 'Login success', token, username: user.username });
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 });
 
 app.listen(PORT, () => {
