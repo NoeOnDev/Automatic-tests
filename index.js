@@ -4,7 +4,7 @@ import { Sequelize, Model, DataTypes } from 'sequelize';
 
 config();
 
-const { PORT, BD_NAME, DB_USER, DB_PASS, DB_PORT, DB_HOST } = process.env;
+const { PORT, DB_NAME, DB_USER, DB_PASS, DB_PORT, DB_HOST } = process.env;
 const app = express();
 
 app.use(express.json());
@@ -17,7 +17,7 @@ app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
 
-const sequelize = new Sequelize(BD_NAME, DB_USER, DB_PASS, {
+const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
     host: DB_HOST,
     port: DB_PORT,
     dialect: 'postgres',
@@ -25,5 +25,8 @@ const sequelize = new Sequelize(BD_NAME, DB_USER, DB_PASS, {
 });
 
 sequelize.authenticate().then(() => { console.log('Authentication sussesful') })
- .catch(err => { console.log('Error: ', err) });
+    .catch(err => { console.log('Error: ', err) });
+
+ sequelize.sync({ force: true }).then(() => { console.log('Database sync') })
+    .catch(err => { console.log('Error: ', err) });
 
