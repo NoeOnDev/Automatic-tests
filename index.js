@@ -1,4 +1,5 @@
 import express from 'express';
+import bcrypt from 'bcrypt';
 import { config } from 'dotenv';
 import { Sequelize, Model, DataTypes } from 'sequelize';
 
@@ -57,5 +58,16 @@ User.init({
     }
 }, {
     sequelize,
-    modelName: 'users'
+    timestamps: true,
+    paranoid: true,
+    modelName: 'Users',
+    tableName: 'users',
+    hooks: {
+        beforeCreate: async (user) => {
+            const saltRounds = 10;
+            const salt = await bcrypt.genSalt(saltRounds);
+            const userHashing = await bcrypt.hash(user.password, salt);
+            user.password = userHashing;
+        }
+    }
 });
