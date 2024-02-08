@@ -60,7 +60,16 @@ app.get('/user', verifyToken, async (req, res) => {
     }
 });
 
-app.put('/user', verifyToken, async (req, res) => {});
+app.put('/user', verifyToken, async (req, res) => {
+    try {
+        const user = await User.findByPk(req.user.userId);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+    } catch (error) {
+    }
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
