@@ -73,6 +73,8 @@ app.put('/user', verifyToken, async (req, res) => {
     }
 });
 
+app.delete('/user', verifyToken, async (req, res) => {});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
