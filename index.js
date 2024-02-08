@@ -82,7 +82,7 @@ app.delete('/user', verifyToken, async (req, res) => {
         await user.destroy();
         res.status(200).json({ message: 'User deleted' });
     } catch (error) {
-
+        res.status(400).json({ message: error.message });
     }
 });
 
