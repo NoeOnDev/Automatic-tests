@@ -69,6 +69,7 @@ app.put('/user', verifyToken, async (req, res) => {
         await user.update(req.body);
         res.status(200).json(user);
     } catch (error) {
+        res.status(400).json({ message: error.message });
     }
 });
 
