@@ -1,8 +1,10 @@
 function sumar (a, b) {
-    const a = parseFloat(a);
-    const b = parseFloat(b);
     if (isNaN(a) || isNaN(b)) {
         throw new Error("Los valores no son numéricos");
     }
-    return a + b;
+    return console.log(a + b);
 }
+
+let a = 5;
+let b = 6;
+sumar(a, b);
