@@ -5,11 +5,6 @@ function sumar (a, b) {
     return console.log(a + b);
 }
 
-let a = 5;
-let b = 6;
-
-sumar(a, b);
-
 function restar (a, b) {
     if (isNaN(a) || isNaN(b)) {
         throw new Error("Los valores no son numéricos");
@@ -17,7 +12,7 @@ function restar (a, b) {
     return console.log(a - b);
 }
 
-let c = 5;
-let d = 6;
+let a = Number(process.argv[2]);
+let b = Number(process.argv[3]);
 
-restar(c, d);
+restar(a, b);
