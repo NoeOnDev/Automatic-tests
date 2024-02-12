@@ -16,3 +16,8 @@ function restar (a, b) {
     }
     return console.log(a - b);
 }
+
+let c = 5;
+let d = 6;
+
+restar(c, d);
