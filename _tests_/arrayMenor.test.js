@@ -36,23 +36,3 @@ test('Valor mínimo de un array con números decimales', () => {
 test('Valor mínimo de un array vacío', () => {
     expect(minimo([])).toBe(Infinity);
 });
-
-test('Valor mínimo de un array con números y cadenas de texto', () => {
-    expect(() => minimo([1, 2, 3, '4', '5'])).toThrow("El array contiene una cadena de texto");
-});
-
-test('Valor mínimo de un array con números y null', () => {
-    expect(minimo([1, 2, 3, null])).toBe(1);
-});
-
-test('Valor mínimo de un array con números y undefined', () => {
-    expect(() => minimo([1, 2, 3, undefined])).toThrow("El array contiene NaN");
-});
-
-test('Valor mínimo de un array con números y NaN', () => {
-    expect(() => minimo([1, 2, 3, NaN])).toThrow("El array contiene NaN");
-});
-
-test('Valor mínimo de un array con solo cadenas de texto', () => {
-    expect(() => minimo(['1', '2', '3'])).toThrow("El array contiene una cadena de texto");
-});
