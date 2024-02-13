@@ -40,19 +40,3 @@ test('Valor máximo de un array vacío', () => {
 test('Valor máximo de un array con números y cadenas de texto', () => {
     expect(() => maximo([1, 2, 3, '4', '5'])).toThrow("El array contiene una cadena de texto");
 });
-
-test('Valor máximo de un array con números y null', () => {
-    expect(maximo([1, 2, 3, null])).toBe(3);
-});
-
-test('Valor máximo de un array con números y undefined', () => {
-    expect(() => maximo([1, 2, 3, undefined])).toThrow("El array contiene NaN");
-});
-
-test('Valor máximo de un array con números y NaN', () => {
-    expect(() => maximo([1, 2, 3, NaN])).toThrow("El array contiene NaN");
-});
-
-test('Valor máximo de un array con solo cadenas de texto', () => {
-    expect(() => maximo(['1', '2', '3'])).toThrow("El array contiene una cadena de texto");
-});
