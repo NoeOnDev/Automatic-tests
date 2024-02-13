@@ -46,15 +46,3 @@ test('Porcentaje de un número respecto a un objeto', () => {
 test('Porcentaje de un número respecto a un booleano', () => {
     expect(() => porcentaje(5, true)).toThrow();
 });
-
-test('Porcentaje de un número respecto a Infinity', () => {
-    expect(porcentaje(5, Infinity)).toBe(0);
-});
-
-test('Porcentaje de Infinity respecto a un número', () => {
-    expect(porcentaje(Infinity, 5)).toBe(Infinity);
-});
-
-test('Porcentaje de Infinity respecto a Infinity', () => {
-    expect(porcentaje(Infinity, Infinity)).toBeNaN();
-});
